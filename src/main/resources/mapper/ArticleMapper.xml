@@ -3,11 +3,11 @@
 <mapper namespace="net.xdclass.online_xdclass.mapper.ArticleMapper">
 
     <select id="listArticle" resultType="Article">
-      select  * from article order by article_level
+      SELECT  * FROM `article` ORDER BY `article_level`,`article_time` DESC
     </select>
 
     <select id="findArticleById" resultType="Article">
-      select  * from article where article_id = ${article_id}
+      select  * from article where article_id = #{article_id}
     </select>
 
 </mapper>

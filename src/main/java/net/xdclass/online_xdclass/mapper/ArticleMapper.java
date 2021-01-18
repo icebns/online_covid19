@@ -10,7 +10,7 @@ public interface ArticleMapper {
     /**查询文章列表*/
     List<Article> listArticle();
     /**查询文章详情*/
-    Article findArticleById(@Param("video_id") Integer articleId);
+    Article findArticleById(@Param("article_id") Integer articleId);
 
 
 }
