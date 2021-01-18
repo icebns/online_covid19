@@ -14,5 +14,7 @@ public interface UserMapper {
 
     User findByUserId(@Param("user_id") Integer userId);
 
+    User findByNewArea(@Param("new_area") String newArea);
+
     User findByNewTest(@Param("new_test") Integer newTest);
 }

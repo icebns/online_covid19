@@ -19,5 +19,7 @@ public interface UserService {
 
     User findByNewTest(@Param("new_test") Integer newTest);
 
+    User findByNewArea(@Param("new_area") String newArea);
+
     User findByUserId(@Param("id") Integer userId);
 }

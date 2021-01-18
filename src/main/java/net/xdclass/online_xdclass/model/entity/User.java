@@ -32,10 +32,7 @@ public class User {
 
     private Integer userLevel;
 
-
-    @JsonProperty("create_time")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date createTime;
+    private String newArea;
 
     @Override
     public String toString() {
@@ -45,11 +42,25 @@ public class User {
                 ", pwd='" + pwd + '\'' +
                 ", headImg='" + headImg + '\'' +
                 ", phone='" + phone + '\'' +
-                ", newTest='" + newTest + '\'' +
+                ", newTest=" + newTest +
                 ", userLevel=" + userLevel +
+                ", newArea='" + newArea + '\'' +
                 ", createTime=" + createTime +
                 '}';
     }
+
+    public String getNewArea() {
+        return newArea;
+    }
+
+    public void setNewArea(String newArea) {
+        this.newArea = newArea;
+    }
+
+    @JsonProperty("create_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date createTime;
+
     public Integer getUserLevel() {
         return userLevel;
     }

@@ -54,6 +54,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findByNewArea(String newArea) {
+
+        User user = userMapper.findByNewArea(newArea);
+        return user;
+    }
+
+
+    @Override
     public User findByUserId(Integer userId) {
 
         User user = userMapper.findByUserId(userId);
