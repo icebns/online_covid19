@@ -10,4 +10,10 @@
       select  * from article where article_id = #{article_id}
     </select>
 
+    <insert id="addArticle" parameterType="Article">
+    INSERT INTO `xdclass`.`article`(`author_id`, `article_author`, `article_title`,
+    `article_img`, `article_content`, `article_level`, `article_time`)
+     VALUES (#{authorId,jdbcType=INTEGER}, #{articleAuthor,jdbcType=VARCHAR}, #{articleTitle,jdbcType=VARCHAR},
+        #{articleImg,jdbcType=VARCHAR},#{articleContent,jdbcType=VARCHAR},#{articleLevel,jdbcType=VARCHAR},#{articleTime,jdbcType=TIMESTAMP})
+</insert>
 </mapper>

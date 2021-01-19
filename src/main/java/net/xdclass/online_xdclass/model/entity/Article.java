@@ -20,6 +20,10 @@ public class Article {
 
     private Integer articleId;
 
+    private Integer authorId;
+
+    private String articleAuthor;
+
     private String articleTitle;
 
     private String articleImg;
@@ -31,10 +35,6 @@ public class Article {
     @JsonProperty("create_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date articleTime;
-
-    private String articleAuthor;
-
-    private Integer authorId;
 
 
     @Override

@@ -13,4 +13,5 @@ public interface ArticleMapper {
     Article findArticleById(@Param("article_id") Integer articleId);
 
 
+    int addArticle(Article article);
 }

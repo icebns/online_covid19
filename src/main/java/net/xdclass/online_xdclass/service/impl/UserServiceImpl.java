@@ -85,6 +85,7 @@ public class UserServiceImpl implements UserService {
             //MD5加密
             user.setPwd(CommonUtils.MD5(pwd));
             user.setNewTest(0);
+            System.out.println(user);
             return user;
         }else {
             return null;
@@ -98,7 +99,7 @@ public class UserServiceImpl implements UserService {
     private static final String [] headImg = {
             "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=326427685,3832691076&fm=26&gp=0.jpg",
             "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=326427685,3832691076&fm=26&gp=0.jpg",
-            "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=326427685,3832691076&fm=26&gp=0.jpg",
+            "https://avatar.csdnimg.cn/8/3/8/1_icebns.jpg",
             "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=326427685,3832691076&fm=26&gp=0.jpg",
             "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=326427685,3832691076&fm=26&gp=0.jpg"
     };
