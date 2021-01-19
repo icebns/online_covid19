@@ -12,7 +12,7 @@ public class Test {
      * id
      * test_img
      * test_result
-     * test_docter
+     * test_doctor
      * test_time
      */
     private Integer testId;
@@ -23,7 +23,7 @@ public class Test {
 
     private String testResult;
 
-    private String testDocter;
+    private String testDoctor;
 
     @JsonProperty("create_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
@@ -37,7 +37,7 @@ public class Test {
                 ", id=" + id +
                 ", testImg='" + testImg + '\'' +
                 ", testResult='" + testResult + '\'' +
-                ", testDocter='" + testDocter + '\'' +
+                ", testDoctor='" + testDoctor + '\'' +
                 ", testTime=" + testTime +
                 '}';
     }
@@ -74,12 +74,12 @@ public class Test {
         this.testResult = testResult;
     }
 
-    public String getTestDocter() {
-        return testDocter;
+    public String getTestDoctor() {
+        return testDoctor;
     }
 
-    public void setTestDocter(String testDocter) {
-        this.testDocter = testDocter;
+    public void setTestDoctor(String testDoctor) {
+        this.testDoctor = testDoctor;
     }
 
     public Date getTestTime() {

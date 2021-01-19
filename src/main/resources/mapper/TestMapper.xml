@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.xdclass.online_xdclass.mapper.TestMapper">
+
+    <select id="listTest" resultType="Test">
+      SELECT  * FROM `test` ORDER BY `test_time` DESC
+    </select>
+
+    <select id="findTestById" resultType="Test">
+      select  * from test where test_id = #{test_id}
+    </select>
+
+    <insert id="addTest" parameterType="Test">
+    INSERT INTO `xdclass`.`test`(`id`, `test_img`, `test_result`, `test_doctor`, `test_time`)
+     VALUES (#{id,jdbcType=INTEGER}, #{testImg,jdbcType=VARCHAR}, #{testResult,jdbcType=VARCHAR},
+        #{testDoctor,jdbcType=VARCHAR},#{testTime,jdbcType=TIMESTAMP})
+</insert>
+</mapper>
