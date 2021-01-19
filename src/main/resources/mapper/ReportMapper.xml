@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.xdclass.online_xdclass.mapper.ReportMapper">
+
+    <select id="listReport" resultType="Report">
+      SELECT  * FROM `report` ORDER BY `report_time` DESC
+    </select>
+
+    <select id="findReportById" resultType="Report">
+      SELECT  * FROM report WHERE id = #{id}
+    </select>
+
+    <select id="findReportByReportId" resultType="Report">
+      SELECT  * FROM report WHERE report_id = #{report_id}
+    </select>
+
+    <insert id="addReport" parameterType="Report">
+    INSERT INTO `xdclass`.`report`(`id`, `home`, `temperature`, `contact`, `go_out`, `health`, `report_time`)
+     VALUES ( #{id,jdbcType=INTEGER}, #{home,jdbcType=VARCHAR}, #{temperature,jdbcType=VARCHAR},
+     #{contact,jdbcType=VARCHAR}, #{goOut,jdbcType=VARCHAR}, #{health,jdbcType=VARCHAR}, #{reportTime,jdbcType=TIMESTAMP})
+</insert>
+</mapper>
