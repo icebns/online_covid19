@@ -7,7 +7,7 @@
     </select>
 
     <select id="findArticleById" resultType="Article">
-      select  * from article where article_id = #{article_id}
+      SELECT  * FROM article WHERE article_id = #{article_id}
     </select>
 
     <insert id="addArticle" parameterType="Article">
@@ -15,5 +15,20 @@
     `article_img`, `article_content`, `article_level`, `article_time`)
      VALUES (#{authorId,jdbcType=INTEGER}, #{articleAuthor,jdbcType=VARCHAR}, #{articleTitle,jdbcType=VARCHAR},
         #{articleImg,jdbcType=VARCHAR},#{articleContent,jdbcType=VARCHAR},#{articleLevel,jdbcType=VARCHAR},#{articleTime,jdbcType=TIMESTAMP})
-</insert>
+    </insert>
+
+    <delete id="deleteArticleById" parameterType="Article">
+        DELETE FROM stuinfo WHERE article_id = #{article_id}
+    </delete>
+
+    <update id="updateArticle" parameterType="Article">
+    UPDATE `article` SET `article_author`=#{articleAuthor,jdbcType=VARCHAR},`article_title`=#{articleTitle,jdbcType=VARCHAR},
+    `article_img`=#{articleImg,jdbcType=VARCHAR},`article_content`=#{articleContent,jdbcType=VARCHAR},
+    `article_level`=#{articleLevel,jdbcType=VARCHAR} WHERE article_id=#{articleId,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateArticleLevel" parameterType="Article">
+    UPDATE `article` SET `article_level`=#{articleLevel,jdbcType=INTEGER} WHERE article_id=#{articleId,jdbcType=INTEGER}
+    </update>
+
 </mapper>

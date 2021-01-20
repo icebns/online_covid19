@@ -23,9 +23,17 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Article findArticleById(Integer articleId) {
-        // 需要使用mybaits关联复杂查询
+
         Article article = articleMapper.findArticleById(articleId);
 
+        return article;
+    }
+
+    public int deleteArticleById(Integer articleId) {
+        System.out.println("articleId = [" + articleId + "]");
+        int article = articleMapper.deleteArticleById(articleId);
+
+        System.out.println("ArticleServiceImpl:"+article);
         return article;
     }
 
@@ -57,7 +65,59 @@ public class ArticleServiceImpl implements ArticleService {
             return null;
         }
     }
+
+    @Override
+    public int updateArticle(Map<String, String> articleInfo){
+        Article article = parseToUpdateArticle(articleInfo);
+        if( article != null){
+            return articleMapper.updateArticle(article);
+        }else {
+            return -1;
+        }
+    }
+
+    private Article parseToUpdateArticle(Map<String, String> articleInfo) {
+        if (articleInfo.containsKey("article_author") && articleInfo.containsKey("article_title") &&
+                articleInfo.containsKey("article_img") && articleInfo.containsKey("article_content") &&
+                articleInfo.containsKey("article_level") && articleInfo.containsKey("article_id")){
+            Article article = new Article();
+            article.setArticleAuthor(articleInfo.get("article_author"));
+            article.setArticleTitle(articleInfo.get("article_title"));
+            article.setArticleImg(articleInfo.get("article_img"));
+            article.setArticleContent(articleInfo.get("article_content"));
+            article.setArticleLevel(Integer.valueOf(articleInfo.get("article_level")));
+            article.setArticleId(Integer.valueOf(articleInfo.get("article_id")));
+            System.out.println(article);
+            return article;
+        }else {
+            return null;
+        }
+    }
+
+    @Override
+    public int updateArticleLevel(Map<String, String> articleInfo){
+        Article article = parseToUpdateArticleLevel(articleInfo);
+        if( article != null){
+            return articleMapper.updateArticleLevel(article);
+        }else {
+            return -1;
+        }
+    }
+
+    private Article parseToUpdateArticleLevel(Map<String, String> articleInfo) {
+        if (articleInfo.containsKey("article_level") && articleInfo.containsKey("article_id")){
+            Article article = new Article();
+            article.setArticleLevel(Integer.valueOf(articleInfo.get("article_level")));
+            article.setArticleId(Integer.valueOf(articleInfo.get("article_id")));
+            System.out.println(article);
+            return article;
+        }else {
+            return null;
+        }
+    }
+
 }
+
 
 
 

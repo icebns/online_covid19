@@ -54,5 +54,39 @@ public class ArticleController {
         return rows == 1 ? JsonData.buildSuccess(): JsonData.buildError("提交失败，请重试");
     }
 
+    /**
+     * 删除
+     * */
+    @GetMapping("delete_article_by_id")
+    public JsonData deleteArticleById(Integer articleId){
+        System.out.println("con:"+articleId);
+        int article = articleService.deleteArticleById(articleId);
+
+        return JsonData.buildSuccess(article);
+
+    }
+
+    /**
+     * 修改文章全文
+     */
+    @PostMapping("update_article")
+    public JsonData updateArticle(@RequestBody Map<String,String> articleInfo){
+
+        int rows = articleService.updateArticle(articleInfo);
+
+        return rows == 1 ? JsonData.buildSuccess(): JsonData.buildError("更新失败，请重试");
+
+    }
+
+    /**
+     * 修改文章等级
+     */
+    @PostMapping("update_article_level")
+    public JsonData updateArticleLevel(@RequestBody Map<String,String> articleInfo){
+        System.out.println(articleInfo);
+        int rows = articleService.updateArticleLevel(articleInfo);
+
+        return rows == 1 ? JsonData.buildSuccess(): JsonData.buildError("更新失败，请重试");
+    }
 
 }

@@ -13,4 +13,10 @@ public interface ArticleService {
     Article findArticleById(@Param("article_id") Integer articleId);
 
     int addArticle(Map<String, String> articleInfo);
+
+    int deleteArticleById(@Param("article_id") Integer articleId);
+
+    int updateArticle(Map<String, String> articleInfo);
+
+    int updateArticleLevel(Map<String, String> articleInfo);
 }

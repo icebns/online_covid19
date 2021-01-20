@@ -12,6 +12,11 @@ public interface ArticleMapper {
     /**查询文章详情*/
     Article findArticleById(@Param("article_id") Integer articleId);
 
-
     int addArticle(Article article);
+
+    int deleteArticleById(@Param("article_id") Integer articleId);
+
+    int updateArticle(Article article);
+
+    int updateArticleLevel(Article article);
 }
