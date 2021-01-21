@@ -18,7 +18,7 @@
     </insert>
 
     <delete id="deleteArticleById" parameterType="Article">
-        DELETE FROM stuinfo WHERE article_id = #{article_id}
+        DELETE FROM `article` WHERE `article_id` = #{article_id}
     </delete>
 
     <update id="updateArticle" parameterType="Article">

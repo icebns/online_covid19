@@ -44,5 +44,12 @@
 
     </select>
 
+    <delete id="deleteUserById" parameterType="User">
+        DELETE FROM `user` WHERE `id` = #{id}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        UPDATE `user` SET `user_level`=#{userLevel,jdbcType=VARCHAR} WHERE id=#{id,jdbcType=INTEGER}
+    </update>
 
 </mapper>

@@ -22,4 +22,9 @@ public interface UserService {
     User findByNewArea(@Param("new_area") String newArea);
 
     User findByUserId(@Param("id") Integer userId);
+
+    int deleteUserById(@Param("id") Integer id);
+
+    int updateUser(Map<String, String> userInfo);
+
 }

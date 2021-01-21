@@ -111,4 +111,35 @@ public class UserServiceImpl implements UserService {
         return headImg[index];
     }
 
+    public int deleteUserById(Integer id) {
+        System.out.println("id = [" + id + "]");
+        int user = userMapper.deleteUserById(id);
+
+        System.out.println("ArticleServiceImpl:"+user);
+        return user;
+    }
+
+    @Override
+    public int updateUser(Map<String, String> userInfo){
+        User user = parseToUpdateUser(userInfo);
+        if( user != null){
+            return userMapper.updateUser(user);
+        }else {
+            return -1;
+        }
+    }
+
+    private User parseToUpdateUser(Map<String, String> articleInfo) {
+        System.out.println("articleInfo = [" + articleInfo + "]");
+        if (articleInfo.containsKey("id") && articleInfo.containsKey("user_level")){
+            User user = new User();
+            user.setId(Integer.valueOf(articleInfo.get("id")));
+            user.setUserLevel(Integer.valueOf(articleInfo.get("user_level")));
+            System.out.println(user);
+            return user;
+        }else {
+            return null;
+        }
+    }
+
 }

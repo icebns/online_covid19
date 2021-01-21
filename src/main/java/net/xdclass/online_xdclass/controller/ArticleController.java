@@ -59,7 +59,7 @@ public class ArticleController {
      * */
     @GetMapping("delete_article_by_id")
     public JsonData deleteArticleById(Integer articleId){
-        System.out.println("con:"+articleId);
+
         int article = articleService.deleteArticleById(articleId);
 
         return JsonData.buildSuccess(article);

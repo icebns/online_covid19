@@ -17,4 +17,10 @@ public interface UserMapper {
     User findByNewArea(@Param("new_area") String newArea);
 
     User findByNewTest(@Param("new_test") Integer newTest);
+
+    int deleteUserById(@Param("id") Integer id);
+
+    int updateUser(User user);
+
+
 }
