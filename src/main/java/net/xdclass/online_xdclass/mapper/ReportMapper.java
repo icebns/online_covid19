@@ -14,4 +14,7 @@ public interface ReportMapper {
     Report findReportByReportId(@Param("report_id") Integer reportId);
 
     int addReport(Report report);
+
+    int updateReportOfUser(Report report);
+
 }

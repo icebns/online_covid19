@@ -67,7 +67,10 @@ public class ReportController {
     public JsonData addReport(@RequestBody Map<String,String> reportInfo){
 
         int rows = reportService.addReport(reportInfo);
-
+        int row2 = reportService.updateReportOfUser(reportInfo);
+        if(row2==1){
+            rows = rows+row2-1;
+        }
         return rows == 1 ? JsonData.buildSuccess(): JsonData.buildError("提交失败，请重试");
     }
 

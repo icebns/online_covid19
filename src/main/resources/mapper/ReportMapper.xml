@@ -15,8 +15,12 @@
     </select>
 
     <insert id="addReport" parameterType="Report">
-    INSERT INTO `xdclass`.`report`(`id`, `home`, `temperature`, `contact`, `go_out`, `health`, `report_time`)
-     VALUES ( #{id,jdbcType=INTEGER}, #{home,jdbcType=VARCHAR}, #{temperature,jdbcType=VARCHAR},
-     #{contact,jdbcType=VARCHAR}, #{goOut,jdbcType=VARCHAR}, #{health,jdbcType=VARCHAR}, #{reportTime,jdbcType=TIMESTAMP})
-</insert>
+        INSERT INTO `report`(`id`, `home`, `temperature`, `contact`, `go_out`, `health`, `report_time`)
+         VALUES ( #{id,jdbcType=INTEGER}, #{home,jdbcType=VARCHAR}, #{temperature,jdbcType=VARCHAR},
+         #{contact,jdbcType=VARCHAR}, #{goOut,jdbcType=VARCHAR}, #{health,jdbcType=VARCHAR}, #{reportTime,jdbcType=TIMESTAMP});
+
+    </insert>
+    <update id="updateReportOfUser" parameterType="Report">
+        UPDATE `user` SET `new_area`=#{home,jdbcType=INTEGER} WHERE id=#{id,jdbcType=INTEGER}
+    </update>
 </mapper>

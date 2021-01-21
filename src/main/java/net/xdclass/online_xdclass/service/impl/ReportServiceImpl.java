@@ -46,6 +46,15 @@ public class ReportServiceImpl implements ReportService {
             return -1;
         }
     }
+    @Override
+    public int updateReportOfUser(Map<String, String> reportInfo){
+        Report report = parseToReport(reportInfo);
+        if( report != null){
+            return reportMapper.updateReportOfUser(report);
+        }else {
+            return -1;
+        }
+    }
 
     private Report parseToReport(Map<String, String> reportInfo) {
         if (reportInfo.containsKey("id") && reportInfo.containsKey("home") &&
