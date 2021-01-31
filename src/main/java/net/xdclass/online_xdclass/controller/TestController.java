@@ -44,12 +44,37 @@ public class TestController {
      * @return
      */
     @PostMapping("add_test")
-    public JsonData addTest(@RequestBody Map<String,String> testInfo){
+    public JsonData addTest(@RequestBody Map<String,String> testInfo) {
 
         int rows = testService.addTest(testInfo);
+        int row2 = testService.addUserTest(testInfo);
 
+        if(row2==1){rows = rows+row2-1;}else{rows=0;}
         return rows == 1 ? JsonData.buildSuccess(): JsonData.buildError("提交失败，请重试");
     }
 
+    /**
+     * 删除
+     * */
+    @GetMapping("delete_test_by_id")
+    public JsonData deleteTestById(Integer testId){
+
+        int test = testService.deleteTestById(testId);
+
+        return JsonData.buildSuccess(test);
+
+    }
+
+    /**
+     * 修改
+     */
+    @PostMapping("update_test")
+    public JsonData updateTest(@RequestBody Map<String,String> testInfo){
+
+        int rows = testService.updateTest(testInfo);
+
+        return rows == 1 ? JsonData.buildSuccess(): JsonData.buildError("更新失败，请重试");
+
+    }
 
 }

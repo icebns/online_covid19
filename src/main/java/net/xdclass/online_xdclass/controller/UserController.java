@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/v1/pub/user")
+@RequestMapping("api/v1/pri/user")
 public class UserController {
 
 
@@ -74,7 +74,7 @@ public class UserController {
      * */
     @GetMapping("delete_user_by_id")
     public JsonData deleteUserById(Integer id){
-        System.out.println("con:"+ id);
+
         int user = userService.deleteUserById(id);
 
         return JsonData.buildSuccess(user);
@@ -86,7 +86,7 @@ public class UserController {
      */
     @PostMapping("update_user")
     public JsonData updateUser(@RequestBody Map<String,String> userInfo){
-        System.out.println("userInfo = [" + userInfo + "]");
+
         int rows = userService.updateUser(userInfo);
 
         return rows == 1 ? JsonData.buildSuccess(): JsonData.buildError("更新失败，请重试");

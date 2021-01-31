@@ -14,13 +14,12 @@ public class Article {
      * `article_content`,
      * `article_level`,
      * `article_time`,
-     * `article_author`,
-     * `author_id`)
+     * `article_author`)
      * */
 
     private Integer articleId;
 
-    private Integer authorId;
+//    private Integer authorId;
 
     private String articleAuthor;
 
@@ -47,7 +46,7 @@ public class Article {
                 ", articleLevel=" + articleLevel +
                 ", articleTime=" + articleTime +
                 ", articleAuthor='" + articleAuthor + '\'' +
-                ", authorId=" + authorId +
+//                ", authorId=" + authorId +
                 '}';
     }
 
@@ -107,13 +106,13 @@ public class Article {
         this.articleAuthor = articleAuthor;
     }
 
-    public Integer getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(Integer authorId) {
-        this.authorId = authorId;
-    }
+//    public Integer getAuthorId() {
+//        return authorId;
+//    }
+//
+//    public void setAuthorId(Integer authorId) {
+//        this.authorId = authorId;
+//    }
 
 
 }

@@ -12,5 +12,11 @@ public interface TestService {
 
     Test findTestById(@Param("test_id") Integer testId);
 
+    /**提交报告并修改user表内容*/
+    int addUserTest(Map<String, String> testInfo);
     int addTest(Map<String, String> testInfo);
+    /**删除*/
+    int deleteTestById(@Param("test_id") Integer testId);
+    /**更新*/
+    int updateTest(Map<String, String> testInfo);
 }

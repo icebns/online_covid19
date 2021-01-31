@@ -7,16 +7,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
 /**
- * `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
- *   `name` varchar(128) DEFAULT NULL COMMENT '昵称',
+ * `id` int(11) unsigned NOT NULL AUTO_INCREMENT, 身份证
+ *   `name` varchar(128) DEFAULT NULL COMMENT '姓名',
  *   `pwd` varchar(124) DEFAULT NULL COMMENT '密码',
  *   `head_img` varchar(524) DEFAULT NULL COMMENT '头像',
  *   `phone` varchar(64) DEFAULT '' COMMENT '手机号',
  *   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+ *   newTest检测结果
+ *   userLevel权限等级
+ *   newArea地区
  */
 public class User {
 
     private Integer id;
+
+//    private Integer id;
 
     private String name;
 
@@ -28,7 +33,7 @@ public class User {
 
     private String phone;
 
-    private Integer newTest;
+    private String newTest;
 
     private Integer userLevel;
 
@@ -69,11 +74,11 @@ public class User {
         this.userLevel = userLevel;
     }
 
-    public Integer getNewTest() {
+    public String getNewTest() {
         return newTest;
     }
 
-    public void setNewTest(Integer newTest) {
+    public void setNewTest(String newTest) {
         this.newTest = newTest;
     }
 

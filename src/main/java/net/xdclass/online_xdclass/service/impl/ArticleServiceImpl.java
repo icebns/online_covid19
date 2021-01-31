@@ -48,11 +48,10 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     private Article parseToArticle(Map<String, String> articleInfo) {
-        if (articleInfo.containsKey("author_id") && articleInfo.containsKey("article_author") &&
-                articleInfo.containsKey("article_title") && articleInfo.containsKey("article_img") &&
-                articleInfo.containsKey("article_content")){
+        if (articleInfo.containsKey("article_author") && articleInfo.containsKey("article_title")
+                && articleInfo.containsKey("article_img") && articleInfo.containsKey("article_content")){
             Article article = new Article();
-            article.setAuthorId(Integer.valueOf(articleInfo.get("author_id")));
+//            article.setAuthorId(Integer.valueOf(articleInfo.get("author_id")));
             article.setArticleAuthor(articleInfo.get("article_author"));
             article.setArticleTitle(articleInfo.get("article_title"));
             article.setArticleImg(articleInfo.get("article_img"));

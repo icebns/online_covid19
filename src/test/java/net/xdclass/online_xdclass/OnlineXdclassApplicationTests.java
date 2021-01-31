@@ -16,7 +16,7 @@ class OnlineXdclassApplicationTests {
 
 		User user = new User();
 		user.setId(66);
-		user.setName("二当家小D");
+		user.setName("icebns");
 		user.setHeadImg("png");
 
 		String token = JWTUtils.geneJsonWebToken(user);

@@ -17,7 +17,7 @@ public interface UserService {
 
     String findByPhoneAndPwd(String phone, String pwd);
 
-    User findByNewTest(@Param("new_test") Integer newTest);
+    User findByNewTest(@Param("new_test") String newTest);
 
     User findByNewArea(@Param("new_area") String newArea);
 

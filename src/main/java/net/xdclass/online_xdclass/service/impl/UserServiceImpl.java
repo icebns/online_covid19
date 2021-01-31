@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
 
     }
     @Override
-    public User findByNewTest(Integer newTest) {
+    public User findByNewTest(String newTest) {
 
         User user = userMapper.findByNewTest(newTest);
         return user;
@@ -84,7 +84,7 @@ public class UserServiceImpl implements UserService {
             String pwd = userInfo.get("pwd");
             //MD5加密
             user.setPwd(CommonUtils.MD5(pwd));
-            user.setNewTest(0);
+            user.setNewTest("暂无");
             System.out.println(user);
             return user;
         }else {

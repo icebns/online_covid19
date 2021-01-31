@@ -15,4 +15,18 @@
      VALUES (#{id,jdbcType=INTEGER}, #{testImg,jdbcType=VARCHAR}, #{testResult,jdbcType=VARCHAR},
         #{testDoctor,jdbcType=VARCHAR},#{testTime,jdbcType=TIMESTAMP})
 </insert>
+    <update id="addUserTest" parameterType="Test">
+        UPDATE `user` SET `new_test`=#{testResult,jdbcType=INTEGER} WHERE id=#{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteTestById" parameterType="Test">
+        DELETE FROM `test` WHERE `test_id` = #{test_id}
+    </delete>
+
+    <update id="updateTest" parameterType="Test">
+    UPDATE `test` SET `test_img`=#{testImg,jdbcType=VARCHAR},`test_result`=#{testResult,jdbcType=VARCHAR},
+    `test_doctor`=#{testDoctor,jdbcType=VARCHAR},`id`=#{id,jdbcType=INTEGER}, WHERE test_id=#{testId,jdbcType=INTEGER}
+    </update>
+
+
 </mapper>

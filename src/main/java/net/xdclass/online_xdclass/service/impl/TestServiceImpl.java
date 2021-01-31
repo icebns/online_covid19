@@ -39,6 +39,16 @@ public class TestServiceImpl implements TestService {
         }
     }
 
+    @Override
+    public int addUserTest(Map<String, String> testInfo){
+        Test test = parseToTest(testInfo);
+        if( test != null){
+            return testMapper.addUserTest(test);
+        }else {
+            return -1;
+        }
+    }
+
     private Test parseToTest(Map<String, String> testInfo) {
         if (testInfo.containsKey("id") && testInfo.containsKey("test_img") &&
                 testInfo.containsKey("test_result") && testInfo.containsKey("test_doctor")){
@@ -54,6 +64,39 @@ public class TestServiceImpl implements TestService {
             return null;
         }
     }
+
+    public int deleteTestById(Integer testId) {
+        int test = testMapper.deleteTestById(testId);
+        return test;
+    }
+
+    @Override
+    public int updateTest(Map<String, String> testInfo){
+        Test test = parseToUpdateTest(testInfo);
+        if( test != null){
+            return testMapper.updateTest(test);
+        }else {
+            return -1;
+        }
+    }
+
+    private Test parseToUpdateTest(Map<String, String> testInfo) {
+        if (testInfo.containsKey("test_id") && testInfo.containsKey("test_img") &&
+                testInfo.containsKey("test_result") && testInfo.containsKey("test_doctor")
+                && testInfo.containsKey("id")){
+            Test test = new Test();
+            test.setTestId(Integer.valueOf(testInfo.get("test_id")));
+            test.setTestImg(testInfo.get("test_img"));
+            test.setTestResult(testInfo.get("test_result"));
+            test.setTestDoctor(testInfo.get("test_doctor"));
+            test.setId(Integer.valueOf(testInfo.get("id")));
+            System.out.println(test);
+            return test;
+        }else {
+            return null;
+        }
+    }
+
 }
 
 
