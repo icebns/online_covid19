@@ -3,6 +3,7 @@ package net.xdclass.online_xdclass.service;
 import net.xdclass.online_xdclass.model.entity.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserService {
@@ -27,4 +28,5 @@ public interface UserService {
 
     int updateUser(Map<String, String> userInfo);
 
+    List<User> listUser();
 }

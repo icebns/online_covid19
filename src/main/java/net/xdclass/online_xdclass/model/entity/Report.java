@@ -23,6 +23,8 @@ public class Report {
 
     private String home;
 
+    private String name;
+
     private String temperature;
 
     private String contact;
@@ -42,6 +44,7 @@ public class Report {
                 "reportId=" + reportId +
                 ", id=" + id +
                 ", home='" + home + '\'' +
+                ", name='" + name + '\'' +
                 ", temperature='" + temperature + '\'' +
                 ", contact='" + contact + '\'' +
                 ", goOut='" + goOut + '\'' +
@@ -49,6 +52,16 @@ public class Report {
                 ", reportTime=" + reportTime +
                 '}';
     }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
     public Date getReportTime() {
         return reportTime;

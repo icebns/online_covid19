@@ -59,6 +59,20 @@ public class ReportController {
     }
 
     /**
+     *delete体温报告
+     * @param reportId
+     * @return
+     */
+    @GetMapping("delete_report_by_report_id")
+    public JsonData deleteReportByReportId(Integer reportId){
+
+        int report = reportService.deleteReportByReportId(reportId);
+
+        return JsonData.buildSuccess(report);
+
+    }
+
+    /**
      *添加体温报告
      * @param reportInfo
      * @return
@@ -72,6 +86,19 @@ public class ReportController {
             rows = rows+row2-1;
         }
         return rows == 1 ? JsonData.buildSuccess(): JsonData.buildError("提交失败，请重试");
+    }
+
+
+    /**
+     * 修改
+     */
+    @PostMapping("update_report")
+    public JsonData updateReport(@RequestBody Map<String,String> reportInfo){
+
+        int rows = reportService.updateReport(reportInfo);
+
+        return rows == 1 ? JsonData.buildSuccess(): JsonData.buildError("更新失败，请重试");
+
     }
 
 

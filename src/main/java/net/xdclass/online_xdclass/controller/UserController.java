@@ -8,11 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("api/v1/pri/user")
 public class UserController {
+
+
+    /**
+     * get-输出列表
+     * @return
+     */
+    @RequestMapping("list")
+    public JsonData listUser(){
+        List<User> userList = userService.listUser();
+        return JsonData.buildSuccess(userList);
+    }
 
 
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.xdclass.online_xdclass.mapper.PatientMapper">
+<!--SELECT  * FROM `patient` ORDER BY `patient_id` DESC-->
+    <select id="listPatient" resultType="Patient">
+      select * from patient left join user on patient.id=user.id order by `patient_id` desc
+    </select>
+
+    <select id="listUser" resultType="User">
+      select id,name from user
+    </select>
+
+    <delete id="deletePatientByPatientId" parameterType="Patient">
+        DELETE FROM patient WHERE patient_id = #{patient_id}
+    </delete>
+
+    <insert id="addPatient" parameterType="Patient">
+        INSERT INTO `patient`(`id`, `sex`, `age`, `source`, `state`, `way`, `hospital`) VALUES (
+         #{id,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
+         #{source,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, #{way,jdbcType=VARCHAR}, #{hospital,jdbcType=VARCHAR});
+
+    </insert>
+    <update id="updatePatient" parameterType="Patient">
+    UPDATE `patient` SET `sex`=#{sex,jdbcType=VARCHAR},`age`=#{age,jdbcType=INTEGER},
+    `source`=#{source,jdbcType=VARCHAR},`state`=#{state,jdbcType=VARCHAR},`way`=#{way,jdbcType=VARCHAR},
+    `hospital`=#{hospital,jdbcType=VARCHAR} WHERE `patient_id`=#{patientId,jdbcType=INTEGER}
+    </update>
+
+    <update id="updatePatientOfUser" parameterType="Patient">
+        UPDATE `user` SET `new_area`=#{hospital,jdbcType=INTEGER} WHERE id=#{id,jdbcType=INTEGER}
+    </update>
+</mapper>

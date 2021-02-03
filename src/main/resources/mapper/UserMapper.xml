@@ -39,9 +39,7 @@
 
 
     <select id="findByUserId" resultType="User">
-
       select  * from user where id=#{user_id}
-
     </select>
 
     <delete id="deleteUserById" parameterType="User">
@@ -52,4 +50,7 @@
         UPDATE `user` SET `user_level`=#{userLevel,jdbcType=VARCHAR} WHERE id=#{id,jdbcType=INTEGER}
     </update>
 
+    <select id="listUser" resultType="User">
+      select id,name from user
+    </select>
 </mapper>

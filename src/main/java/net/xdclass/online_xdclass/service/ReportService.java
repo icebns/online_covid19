@@ -15,7 +15,11 @@ public interface ReportService {
 
     Report findReportByReportId(@Param("report_id") Integer reportId);
 
+    int deleteReportByReportId(@Param("report_id") Integer reportId);
+
     int addReport(Map<String, String> reportInfo);
 
     int updateReportOfUser(Map<String, String> reportInfo);
+
+    int updateReport(Map<String, String> reportInfo);
 }

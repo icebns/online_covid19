@@ -10,6 +10,7 @@ public class Test {
     /**
      * test_id
      * id
+     * name
      * test_img
      * test_result
      * test_doctor
@@ -18,6 +19,8 @@ public class Test {
     private Integer testId;
 
     private Integer id;
+
+    private String name;
 
     private String testImg;
 
@@ -35,11 +38,20 @@ public class Test {
         return "Test{" +
                 "testId=" + testId +
                 ", id=" + id +
+                ", name='" + name + '\'' +
                 ", testImg='" + testImg + '\'' +
                 ", testResult='" + testResult + '\'' +
                 ", testDoctor='" + testDoctor + '\'' +
                 ", testTime=" + testTime +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getTestId() {

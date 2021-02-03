@@ -3,6 +3,8 @@ package net.xdclass.online_xdclass.mapper;
 import net.xdclass.online_xdclass.model.entity.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UserMapper {
 
     int save(User user);
@@ -22,5 +24,6 @@ public interface UserMapper {
 
     int updateUser(User user);
 
+    List<User> listUser();
 
 }
