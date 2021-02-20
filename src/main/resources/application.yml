@@ -1,0 +1,8 @@
+ftp:
+  host: 39.105.183.18
+  userName: root
+  password: Qazd4f5li1
+  port: 22
+  rootPath: /usr/local/software/img
+  img:
+    url: http://icebns.cn:3001/app/img

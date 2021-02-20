@@ -7,7 +7,7 @@
     </select>
 
     <select id="findReportById" resultType="Report">
-      SELECT  * FROM report WHERE id = #{id}
+      SELECT * FROM report WHERE id = 19 ORDER BY `report_time` DESC
     </select>
 
     <select id="findReportByReportId" resultType="Report">
